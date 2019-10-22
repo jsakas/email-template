@@ -1,0 +1,23 @@
+{
+  "scripts": {
+    "start": "yarn templates & yarn server",
+    "templates": "nodemon -w ./src -w email-data.json -e '*' main.js",
+    "server": "lr-http-server -d dist/"
+  },
+  "dependencies": {
+    "inline-css": "^2.4.2",
+    "lr-http-server": "^0.1.5",
+    "nodemon": "^1.19.4",
+    "nunjucks": "^3.2.0",
+    "papaparse": "^5.1.0",
+    "pretty": "^2.0.0",
+    "xmlhttprequest": "^1.8.0"
+  },
+  "name": "email-template",
+  "version": "0.0.1",
+  "description": "An email template builder",
+  "main": "main.js",
+  "devDependencies": {},
+  "author": "Jon Sakas",
+  "license": "MIT"
+}

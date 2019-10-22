@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <table cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td width="600" height="300" valign="center" align="center">
+
+        THIS IS THE CONTENT
+          
+      </td>
+    </tr>
+  </table>
+
+  {% from 'footer.html' import footer with context %}
+  {{ footer() }}
+
+{% endblock %}
