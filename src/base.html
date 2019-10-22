@@ -1,0 +1,173 @@
+{% set font_stack = "'Montserrat', sans-serif" %}
+{% set font_stack_ms = "'Montserrat', sans-serif" %} 
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="x-apple-disable-message-reformatting" />
+    <link rel="icon" type="image/png" sizes="32x32" href="https://placehold.it/32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://placehold.it/16x16.png">
+    <link rel="icon" type="image/png" sizes="259x259" href="https://placehold.it/259x259.png">
+    <title>{{ title }}</title>
+    <style data-embed type="text/css">
+       @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+    </style>
+    <style type="text/css">
+      body {
+        font-family: {{ font_stack|safe }};
+        color: #034638;
+      }
+
+      img {
+        display: block;
+        border: 0;
+      }
+
+      .container {
+        font-family: {{ font_stack|safe }};
+        font-size: 12px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      @media only screen and (max-width: 500px) {
+        td[class~=wrapper] img {
+          height: auto !important;
+        }
+
+        td[class~=wrapper] .drop,
+        td[class~=wrapper] .rise,
+        td[class~=wrapper] .stack {
+          width: 100% !important;
+          max-width: 100% !important;
+        }
+
+        td[class~=wrapper] .rise {
+          display: table-header-group !important;
+        }
+
+        td[class~=wrapper] .drop {
+          display: table-footer-group !important;
+        }
+
+        td[class~=wrapper] .hide {
+          display: none !important;
+        }
+
+        td[class~=wrapper] .stack {
+          display: block !important;
+        }
+
+        td[class~=wrapper] .no-padding {
+          padding: 0 !important;
+        }
+
+        td[class~=wrapper] .center {
+          text-align: center !important;
+        }
+
+        td[class~=wrapper] .left {
+          text-align: left !important;
+        }
+
+        td[class~=wrapper] .full {
+          width: 100% !important;
+        }
+
+        td[class~=wrapper] .show {
+          display: table !important;
+          width: 100% !important;
+          height: auto !important;
+          overflow: auto !important;
+          float: none !important;
+        }
+
+        td[class~=wrapper] .clear {
+          float: none !important;
+        }
+      }
+
+    </style>
+
+    <style data-embed>
+          u + #body a {
+          color: inherit;
+          text-decoration: none;
+          font-size: inherit;
+          font-family: inherit;
+          font-weight: inherit;
+          line-height: inherit;
+      }
+    </style>
+  </head>
+
+  <!--[if gte mso 9]>
+    <style> 
+    
+      th,
+      td,
+      a,
+      div,
+      span {
+        font-family: {{ font_stack_ms|safe }} !important; 
+      }
+
+      table td {
+        border-collapse: collapse;
+      }
+
+      table {
+        border-collapse: collapse;
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+      }
+
+      </style>   
+  <![endif]-->
+
+  <!--[if gte mso 9]>
+    <xml>
+    <o:OfficeDocumentSettings>
+    <o:AllowPNG/>
+    <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+  <![endif]-->
+  <!--[if mso]>
+    <xml xmlns:w="urn:schemas-microsoft-com:office:word">
+      <w:WordDocument>
+        <w:AutoHyphenation/>
+      </w:WordDocument>
+    </xml>
+  <![endif]-->
+
+  <body style="background-color:#ffffff; color:#111; margin: 0" id="body">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td align="center" class="wrapper" bgcolor="#ffffff" style="padding: 0" AP:EDIT>
+          <table cellpadding="0" cellspacing="0" border="0" style="display: none; visibility: hidden">
+            <tr>
+              <td width="600" align="left" style="padding: 20px">
+                {{ title }}
+              </td>
+            </tr>
+          </table>
+
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td align="center" valign="top">
+
+                {% block content %}{% endblock %}
+
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+</html>
