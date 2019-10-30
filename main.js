@@ -7,11 +7,13 @@ const emailData = require('./email-data.json');
 
 nunjucks.configure('src');
 
-const REMOTE_STATIC_URL = "images/"
+const REMOTE_STATIC_URL = 'https://my-server/images'
 const DIST_DIR = path.resolve(__dirname, 'dist');
+const LOCAL_STATIC_DIR = '/images';
 
-const withStatic = s => s.replace(/images\//g, REMOTE_STATIC_URL);
-const withPrettyHtml = s => pretty(s);
+const staticRegex = new RegExp(LOCAL_STATIC_DIR, "g");
+const withStatic = s => s.replace(staticRegex, REMOTE_STATIC_URL);
+const withPrettyHtml = s => pretty(s, {ocd: true});
 
 try {
   fs.readdirSync(DIST_DIR)
@@ -19,14 +21,14 @@ try {
   fs.mkdirSync(DIST_DIR, { recursive: true });
 }
 
-const compileFile = (inFile, outFile) => {
-  const compiled = nunjucks.render(inFile);
+const compileFile = (inFile, outFile, data = {}) => {
+  const compiled = nunjucks.render(inFile, data);
   return inlineCss(compiled, {
     url: '/',
     preserveMediaQueries: true,
     removeLinkTags: false,
   })
-    .then(withStatic)
+    // .then(withStatic)
     .then(withPrettyHtml)
     .then(html => fs.writeFileSync(outFile, html));
 }
@@ -34,5 +36,10 @@ const compileFile = (inFile, outFile) => {
 compileFile('font-test.html', path.resolve(DIST_DIR, 'font-test.html'));
 
 emailData.forEach(data => {
-  compileFile(data.template, path.resolve(DIST_DIR, data.outfile))
+  data.image_dir = LOCAL_STATIC_DIR;
+  compileFile(
+    data.template, 
+    path.resolve(DIST_DIR, data.outfile),
+    data
+  )
 });

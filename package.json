@@ -2,7 +2,7 @@
   "scripts": {
     "start": "yarn templates & yarn server",
     "templates": "nodemon -w ./src -w email-data.json -e '*' main.js",
-    "server": "lr-http-server -d dist/"
+    "server": "lr-http-server -d ."
   },
   "dependencies": {
     "inline-css": "^2.4.2",
