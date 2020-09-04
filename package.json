@@ -9,7 +9,7 @@
     "lr-http-server": "^0.1.5",
     "nodemon": "^1.19.4",
     "nunjucks": "^3.2.0",
-    "papaparse": "^5.1.0",
+    "papaparse": "^5.2.0",
     "pretty": "^2.0.0",
     "xmlhttprequest": "^1.8.0"
   },
