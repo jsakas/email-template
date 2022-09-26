@@ -5,7 +5,7 @@
     "server": "lr-http-server -d ."
   },
   "dependencies": {
-    "inline-css": "^2.4.2",
+    "inline-css": "^4.0.1",
     "lr-http-server": "^0.1.5",
     "nodemon": "^1.19.4",
     "nunjucks": "^3.2.0",
